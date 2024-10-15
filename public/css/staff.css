@@ -1,0 +1,56 @@
+h2{
+    margin-top: 0;
+    margin-bottom: 0;
+    font-weight: 0;
+    line-height: 0;
+}
+
+.sidebar_staff{
+    color: #cfe937!important;
+}
+
+.seach{
+    margin: 20px 0 20px 30px;
+}
+
+.crew_name{
+    min-width: 5rem;
+    height: 2rem;
+    border-radius: 5%;
+    text-align-last: center;
+    cursor: pointer;
+}
+
+.year{
+    width: 5rem;
+    height: 2rem;
+    border-radius: 5%;
+    text-align-last: center;
+    cursor: pointer;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.button{
+    width: 3rem;
+    height: 2rem;
+    cursor: pointer;
+}
+
+/*グラフの設定*/
+.graph_title{
+    text-align: center;
+    margin: 15px 0;
+}
+
+h2{
+    font-weight: bold!important;
+    font-size: 28px!important;
+}
+
+#barGraph{
+    width: 90%;
+    margin: auto;
+    height: 600px;
+}
+

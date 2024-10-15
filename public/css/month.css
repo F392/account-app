@@ -1,0 +1,133 @@
+.sidebar_month{
+    color: #cfe937!important;
+}
+
+/*form*/
+.seach{
+    margin: 20px 0 20px 30px;
+}
+
+.year{
+    width: 5rem;
+    height: 2rem;
+    border-radius: 5%;
+    text-align-last: center;
+    cursor: pointer;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.month{
+    width: 5rem;
+    height: 2rem;
+    border-radius: 5%;
+    text-align-last: center;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.button{
+    width: 3rem;
+    height: 2rem;
+    cursor: pointer;
+}
+
+.bar-graph{
+    width: 65%;
+}
+
+/*グラフの設定*/
+.graph_title{
+    text-align: center;
+    margin: 15px 0 25px 0;
+}
+
+h2{
+    font-weight: bold!important;
+    font-size: 28px!important;
+}
+
+#canvas{
+    padding-left: 20px;
+    width: 60%;
+}
+
+.graph_table_container{
+    display: flex;
+}
+
+.table_container{
+    width: 40%;
+}
+
+table{
+    height: auto;
+    width: 95%;
+}
+
+table tr th:nth-child(2){
+    height: 50px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border: 1px solid #ccc;
+    text-align: center; /* テキスト左寄せ */
+    background-color: #eee; /* グレーの背景色 */
+}
+
+table tr th:nth-child(3),
+table tr th:nth-child(4){
+    height: 50px;
+    width: 35%;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border: 1px solid #ccc;
+    text-align: center; /* テキスト左寄せ */
+    background-color: #eee; /* グレーの背景色 */
+}
+
+table tr td:nth-child(2),
+table tr td:nth-child(3),
+table tr td:nth-child(4){
+    padding: 5px 8px;
+    border: 1px solid #ccc;
+    text-align: center;
+}
+
+.gold_crown td:nth-child(2),
+.gold_crown td:nth-child(3),
+.gold_crown td:nth-child(4){
+    background-color: #d9ff0080;
+}
+.silver_crown td:nth-child(2),
+.silver_crown td:nth-child(3),
+.silver_crown td:nth-child(4){
+    background-color: #afafaf43;
+}
+.copper_crown td:nth-child(2),
+.copper_crown td:nth-child(3),
+.copper_crown td:nth-child(4){
+    background-color: #ec43004c;
+}
+
+tr td img{
+    margin-left: 8px;
+    width: 25px;
+}
+
+tr td{
+    height: 40px;
+}
+
+.sum_bill{
+    padding: 20px 0;
+    width: 60%;
+    margin: 50px auto 0 auto;
+    text-align: center;
+    border: #000000 2px solid;
+}
+
+.sum_bill span{
+    font-size: 28px;
+    font-weight: bold;
+    color: rgb(255, 0, 0);
+}

@@ -1,0 +1,213 @@
+
+/*ホーム画面*/
+/*-----------------------------------------------------------*/
+
+/*全体を整列*/
+body{
+    display: flex;
+    height: 100vh;
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    background: #F0F4FF;
+}
+
+.flex_container{
+    margin: auto;
+}
+
+/*月次売上*/
+.bill_container{
+    width: 200px;
+    height: 200px;
+    background-color: #e3364a; /* 背景色 */
+    box-shadow: 0 5px 0 #ca1c30; /* 影の太さ・色 */
+    border-radius: 60px;
+    cursor: pointer;
+}
+
+.bill_container:active {
+    box-shadow: none;
+    transform: translateY(5px);
+}
+
+.bill_icon{
+    width: 100%;
+    height: 100%;
+    display: inline-block;
+    background-image: url("../img/bill_icon.png");
+    background-repeat: no-repeat;
+    background-size: 150px;
+    background-position: center;
+}
+
+.bill_container p{
+    text-align: center;
+    position: relative;
+    top: 60px;
+    padding: 5px 0;
+    background-color: rgb(193, 193, 193,0.6);
+    font-size: 24px;
+    font-weight: bold;
+    user-select: none;
+}
+
+
+/*提携業社*/
+.vendor_container{
+    width: 200px;
+    height: 200px;
+    background-color: #34b496;
+    box-shadow: 0 5px 0 #298c75;
+    border-radius: 60px;
+    cursor: pointer;
+    margin-top: 50px;
+}
+
+.vendor_container:active {
+    box-shadow: none;
+    transform: translateY(5px);
+}
+
+.vendor_icon{
+    width: 100%;
+    height: 100%;
+    display: inline-block;
+    background-image: url("../img/vendor_icon.png");
+    background-repeat: no-repeat;
+    background-size: 150px;
+    background-position: center;
+}
+
+.vendor_container p{
+    text-align: center;
+    position: relative;
+    top: 60px;
+    padding: 5px 0;
+    background-color: rgb(193, 193, 193,0.6);
+    font-size: 24px;
+    font-weight: bold;
+    user-select: none;
+}
+
+
+/*従業員別売上*/
+.staff_container{
+    width: 200px;
+    height: 200px;
+    background-color: #61b0e2;
+    box-shadow: 0 5px 0 #369ada;
+    border-radius: 60px;
+    cursor: pointer;
+}
+
+.staff_container:active {
+    box-shadow: none;
+    transform: translateY(5px);
+}
+
+.staff_icon{
+    width: 100%;
+    height: 100%;
+    display: inline-block;
+    background-image: url("../img/staff_icon.png");
+    background-repeat: no-repeat;
+    background-size: 150px;
+    background-position: center;
+}
+
+.staff_container p{
+    text-align: center;
+    position: relative;
+    top: 60px;
+    padding: 5px 0;
+    background-color: rgb(193, 193, 193,0.6);
+    font-size: 24px;
+    font-weight: bold;
+    user-select: none;
+}
+
+
+/*月次売上*/
+.month_container{
+    width: 200px;
+    height: 200px;
+    background-color: #e29761;
+    box-shadow: 0 5px 0 #da7536;
+    border-radius: 60px;
+    cursor: pointer;
+    margin-top: 50px;
+}
+
+.month_container:active {
+    box-shadow: none;
+    transform: translateY(5px);
+}
+
+.month_icon{
+    width: 100%;
+    height: 100%;
+    display: inline-block;
+    background-image: url("../img/month_icon.png");
+    background-repeat: no-repeat;
+    background-size: 150px;
+    background-position: center;
+}
+
+.month_container p{
+    text-align: center;
+    position: relative;
+    top: 60px;
+    padding: 5px 0;
+    background-color: rgb(193, 193, 193,0.6);
+    font-size: 24px;
+    font-weight: bold;
+    user-select: none;
+}
+
+
+/*顧客別集計*/
+.customer_container{
+    width: 200px;
+    height: 200px;
+    background-color: #ffd150;
+    box-shadow: 0 5px 0 #ffc41d;
+    border-radius: 60px;
+    cursor: pointer;
+}
+
+.customer_container:active {
+    box-shadow: none;
+    transform: translateY(5px);
+}
+
+.customer_icon{
+    width: 100%;
+    height: 100%;
+    display: inline-block;
+    background-image: url("../img/customer_icon.png");
+    background-repeat: no-repeat;
+    background-size: 150px;
+    background-position: center;
+}
+
+.customer_container p{
+    text-align: center;
+    position: relative;
+    top: 60px;
+    padding: 5px 0;
+    background-color: rgb(193, 193, 193,0.6);
+    font-size: 24px;
+    font-weight: bold;
+    user-select: none;
+}
+
+/*目には見えないがデザインのため*/
+.fake_container{
+    width: 200px;
+    height: 200px;
+    margin-top: 50px;
+}
+
+/*-----------------------------------------------------------*/
+

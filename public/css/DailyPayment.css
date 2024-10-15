@@ -1,0 +1,203 @@
+.sidebar_DailyPayment{
+    color: #cfe937!important;
+}
+/*ヘッダーの追加ボタン*/
+.add_icon_container {
+    margin-right: auto;
+    padding: 20px 0;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background-color: #ffffff;
+    display: flex;
+}
+.sum_container{
+    width: 140px;
+    height: 80px;
+    border: solid 2px rgb(110, 110, 110,0.5);
+    margin-left: 25px;
+    padding: 5px;
+}
+.sum_container span{
+    font-size: small;
+}
+.sum_container div{
+    text-align: center;
+    position: relative;
+    top: 5px;
+}
+.sum_container div span:nth-child(1){
+    font-size: 19px;
+    font-weight: bold;
+    color: red;
+}
+.sum_container div span:nth-child(2){
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.dli-plus-circle:hover {
+    background-color: #e8e7e7e4;
+}
+
+.dli-plus-circle {
+    text-decoration: none;
+    margin-left: 2.5%;
+    display: inline-block;
+    vertical-align: middle;
+    color: #000000;
+    line-height: 1;
+    position: relative;
+    width: 75px;
+    height: 55px;
+    border: 0.1em solid currentColor;
+    background-color: #e8e7e7;
+    border-color: #d1d0d0;
+    border-radius: 10%;
+    box-sizing: content-box;
+    text-align: center;
+}
+
+.dli-plus-circle:hover {
+    color: #000000;
+}
+
+
+.dli-plus-circle img {
+    width: 36px;
+}
+
+.dli-plus-circle p{
+    font-size: small;
+}
+.container {
+    width: 90%!important;
+    margin: 0 auto;
+}
+.calender_header {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0;
+}
+.calender_header > a {
+    text-decoration: none;
+}
+.calender_header > div {
+    font-weight: bold;
+}
+.grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+}
+.weekday {
+    text-align: center;
+}
+.day {
+    text-align: center;
+    border: 1px solid #eee;
+    padding: 10px;
+    height: 110px;
+    overflow: hidden;
+    text-overflow:ellipsis;
+}
+.this-month {
+    color: #111;
+}
+.not-this-month {
+    color: #ccc;
+}
+
+#daily_payment{
+    background-color: rgba(255, 166, 0, 0.2);
+    cursor: pointer;
+}
+
+.daily_payment_crew{
+    padding: 3px 5px;
+    background-color: #afafaf5e;
+    font-size: small;
+}
+
+.this-month p{
+    margin-bottom: 0;
+}
+
+.header {
+    display: flex;
+}
+
+.seach {
+    margin: 35px 20px 20px 30px;
+}
+
+.year {
+    width: 6rem;
+    height: 2rem;
+    border-radius: 5%;
+    text-align-last: center;
+    cursor: pointer;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.month {
+    width: 5rem;
+    height: 2rem;
+    border-radius: 5%;
+    text-align-last: center;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+#crew{
+    height: 2rem;
+    border-radius: 5%;
+    text-align-last: center;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.button {
+    width: 3rem;
+    height: 2rem;
+    cursor: pointer;
+}
+
+
+/* エラーメッセージ */
+.err_msg{
+    color: red;
+    text-align: left;
+    font-size: small;
+}
+
+
+/*フラッシュメッセージ*/
+.flash {
+    position: absolute;
+    padding: 0.75rem 1.25rem;
+    border: 1px solid transparent;
+    border-radius: 0.25rem;
+}
+.flash-success {
+    top: 5%;
+    left: 78%;
+    width: 300px;
+    color: #1d643b;
+    background-color: #cdf5dd9f;
+    border-color: #cdefdb;
+    transform: translateY(-50%);
+    text-align: left;
+    z-index: 99;
+}
+.flash-error {
+    top: 5%;
+    left: 78%;
+    width: 300px;
+    background: rgba(255, 2, 2, 0.773);
+    border-color: rgba(255, 2, 2);
+    color: #fff;
+    transform: translateY(-50%);
+    text-align: left;
+    z-index: 99;
+}

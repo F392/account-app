@@ -1,0 +1,229 @@
+.sidebar_bill{
+    color: #cfe937!important;
+}
+/*ヘッダーの追加ボタン*/
+.add_icon_container {
+    margin-right: auto;
+    padding: 20px 0;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background-color: #ffffff;
+}
+
+.dli-plus-circle:hover {
+    background-color: #e8e7e7e4;
+}
+
+.dli-plus-circle {
+    text-decoration: none;
+    margin-left: 2.5%;
+    display: inline-block;
+    vertical-align: middle;
+    color: #000000;
+    line-height: 1;
+    position: relative;
+    width: 75px;
+    height: 55px;
+    border: 0.1em solid currentColor;
+    background-color: #e8e7e7;
+    border-color: #d1d0d0;
+    border-radius: 10%;
+    box-sizing: content-box;
+    text-align: center;
+}
+
+.dli-plus-circle:hover {
+    color: #000000;
+}
+
+
+.dli-plus-circle img {
+    width: 36px;
+}
+
+.dli-plus-circle p{
+    font-size: small;
+}
+
+.header {
+    display: flex;
+}
+/*formのデザイン*/
+table{
+    border-spacing: 0;
+    width: 95%;
+    margin: auto;
+}
+
+table p{
+    margin-bottom: 0;
+}
+
+.form_design{
+    width: 100%;
+    border-spacing: 0;
+    border-collapse:separate;
+}
+
+.form_design tr th{
+    padding: 10px 0;
+}
+
+.form_design tr th:nth-child(4),
+.form_design tr th:nth-child(8){
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border: 1px solid #ccc;
+    text-align: center; /* テキスト左寄せ */
+    width: 5%; /* 横幅30%指定（グレーの背景色部分） */
+    background-color: #eee; /* グレーの背景色 */
+}
+
+.form_design tr th:nth-child(1),
+.form_design tr th:nth-child(2),
+.form_design tr th:nth-child(3),
+.form_design tr th:nth-child(5),
+.form_design tr th:nth-child(6),
+.form_design tr th:nth-child(7){
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border: 1px solid #ccc;
+    text-align: center; /* テキスト左寄せ */
+    width: 10%; /* 横幅30%指定（グレーの背景色部分） */
+    background-color: #eee; /* グレーの背景色 */
+}
+
+
+.form_design tr td{
+    padding: 8px;
+    border: 1px solid #ccc;
+    text-align: center;
+}
+
+.form_design tr td p{
+    text-align: left;
+    padding: 2px 0;
+}
+
+.form_design tr td:nth-child(5) input,
+.form_design tr td:nth-child(6) input,
+.form_design tr td:nth-child(7) input,
+.form_design tr td:nth-child(8) input{
+    width: 100%;
+    padding: 3px 10px;
+    border-radius: 3px;
+    border: 1px solid rgb(129, 129, 129);
+}
+
+.form_design tr td:nth-child(7) div div{
+    text-align: left;
+    padding: 4px 0;
+}
+
+.form_design tr td select{
+    padding: 4px;
+}
+
+.form_design tr td button{
+    padding: 4px;
+    border-color: #a6a6a6;
+    border-radius: 5%;
+}
+
+/*テーブルが取得できなかった時*/
+.notable{
+    text-align: center;
+    font-weight: bold;
+    border: 1px solid #ccc;
+    padding: 8px 0;
+    color: rgb(244, 26, 26);
+    width: 95%;
+    margin: auto;
+}
+
+/*エラーメッセージ*/
+.err_msg{
+    color: red;
+    text-align: left;
+    font-size: small;
+}
+
+/*無形追加マークのアイコン*/
+.dli-plus {
+    display: inline-block;
+    vertical-align: middle;
+    color: #333;
+    line-height: 1;
+    position: relative;
+    width: 1em;
+    height: 1em;
+    border: 0.1em solid currentColor;
+    border-radius: 50%;
+    box-sizing: content-box;
+  }
+  
+  .dli-plus > span {
+    width: 52%;
+    height: 0.1em;
+    background: currentColor;
+    border-radius: 0.1em;
+    position: relative;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+  }
+  
+  .dli-plus > span::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: inherit;
+    border-radius: inherit;
+    transform: rotate(90deg);
+  }
+
+  /*テーブルのヘッダーを固定する*/
+  .table_header{
+    /* 縦スクロール時に固定する */
+    position: -webkit-sticky;
+    position: sticky;
+    top: 97.7px;
+    /* tbody内のセルより手前に表示する */
+    z-index: 1;
+}
+
+/*フラッシュメッセージ*/
+.flash {
+    position: absolute;
+    padding: 0.75rem 1.25rem;
+    border: 1px solid transparent;
+    border-radius: 0.25rem;
+}
+.flash-success {
+    top: 5%;
+    left: 78%;
+    width: 300px;
+    color: #1d643b;
+    background-color: #cdf5dd9f;
+    border-color: #cdefdb;
+    transform: translateY(-50%);
+    text-align: left;
+    z-index: 99;
+}
+.flash-error {
+    top: 5%;
+    left: 78%;
+    width: 300px;
+    background: rgba(255, 2, 2, 0.773);
+    color: #fff;
+    transform: translateY(-50%);
+    text-align: left;
+    z-index: 99;
+}

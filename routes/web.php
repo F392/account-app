@@ -40,6 +40,9 @@ Route::group(['middleware' => ['auth']], function () {
 //顧客別集計
     Route::get('customer', 'App\Http\Controllers\CustomerController@show')->name('customer');
     Route::get('customer/search', 'App\Http\Controllers\CustomerController@search')->name('customer_search');
+    Route::get('customer/select', 'App\Http\Controllers\CustomerController@select')->name('customer_select');
+    Route::get('customer/edit', 'App\Http\Controllers\CustomerController@edit')->name('customer_edit');
+    Route::post('customer/save', 'App\Http\Controllers\CustomerController@save')->name('customer_save');
 
 //売掛
     Route::get('kake', 'App\Http\Controllers\KakeController@show')->name('kake');

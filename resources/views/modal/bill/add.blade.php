@@ -8,8 +8,16 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                     <div class="date_container">
-                        <p>来店日を入力してください。</p>
-                        <input class="date" type='date'>
+                        <div>
+                            <p>来店日</p>
+                            <input class="date" type='date'>
+                            <p class="err_date"></p>
+                        </div>
+                        <div>
+                            <p>来店人数</p>
+                            <input class="people_number" type='number'>
+                            <p class="err_people_number"></p>
+                        </div>
                     </div>
                 <div class="modal-body" style="overflow-y: auto;-webkit-overflow-scrolling: touch;padding-top:0;">
                     <table class="add_table">
@@ -34,13 +42,29 @@
 
 <style>
     .date_container {
-        text-align: center;
-        margin: 15px 0;
+        display: flex;
+        justify-content: center;
         border-collapse: collapse;
+    }
+
+    .date_container input{
+        text-align: center;
+    }
+
+    .date_container div:nth-child(1){
+        margin-right: 20px;
+    }
+
+    .date_container div:nth-child(2){
+        margin-left: 20px;
     }
 
     .date_container p {
         margin-bottom: 5px;
+    }
+
+    .date_container p:nth-child(2){
+        margin-bottom: 0;
     }
 
     .date_container input {
@@ -98,5 +122,12 @@
         width: 100%;
         height: 100%;
         z-index: -1;
+    }
+
+    .err_date,
+    .err_people_number{
+        color: red;
+        font-size: small;
+        margin-bottom: 0;
     }
 </style>

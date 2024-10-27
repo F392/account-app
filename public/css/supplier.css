@@ -87,7 +87,6 @@
 
 /*tableデザイン*/
 .checkbox_alert {
-    margin-left: 20px;
     padding-bottom: 5px;
     position: sticky;
     background-color: white;
@@ -100,10 +99,10 @@
 }
 
 table {
-    margin-left: 20px;
     border-collapse: collapse;
     table-layout: fixed;
     margin-bottom: 20px;
+    width: 100%;
 }
 
 table tr th:nth-child(1) {

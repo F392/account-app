@@ -22,7 +22,7 @@
             @include('layouts.sidebar')
         </div>
 
-        <div style="width:100%;">
+        <div style="width:100%; margin-left: 20px;">
             @if (count($suppliers) == 0)
             @include('supplier.NoTable')
             @else

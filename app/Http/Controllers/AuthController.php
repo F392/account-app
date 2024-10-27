@@ -28,7 +28,7 @@ class AuthController extends Controller
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
             //sessionに「store_id」を保存する
-            $request->session()->put('store_id', 1);
+            $request->session()->put('store_id', Auth::user()->store_id);
 
             return redirect()->route('home');
         }

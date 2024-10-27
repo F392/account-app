@@ -172,8 +172,10 @@ public function SaveNewBill(Request $request){
             'customer_id' => $request->input('id'),
             'crew_id' => $crew_id['crew_id'],
             'date' => $request->input('date'),
+            'people_number' => $request->input('people_number'),
         ]
     );
+    $request->session()->regenerateToken();
     session()->flash('flash.success', '1件の新規データを作成しました。');
 }
 }

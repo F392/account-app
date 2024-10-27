@@ -25,6 +25,7 @@
         <div style="width:100%;">
             <div class="customer_container">
                 <div>
+                    <span class="form_label_elective">任意</span>
                     <b>名前&nbsp;:</b>
                 </div>
                 <div>
@@ -33,6 +34,7 @@
             </div>
             <div class="customer_container">
                 <div>
+                    <span class="form_label_elective">任意</span>
                     <b>カナ&nbsp;:</b>
                 </div>
                 <div>
@@ -41,6 +43,7 @@
             </div>
             <div class="customer_container">
                 <div>
+                    <span class="form_label_elective">任意</span>
                     <b>会社名&nbsp;:</b>
                 </div>
                 <div>
@@ -49,11 +52,12 @@
             </div>
             <div class="customer_container">
                 <div>
+                    <span class="form_label_elective">任意</span>
                     <b>担当&nbsp;:</b>
                 </div>
                 <div>
                     <select id="customer_crew_id" name="crew_id" >
-                        <option></option>
+                        <option value="">-----</option>
                         <option value="0">店</option>
                         @foreach ($crew as $item)
                             <option value="{{$item->id}}">{{$item->name}}</option>
@@ -63,6 +67,7 @@
             </div>
             <div class="customer_container">
                 <div>
+                    <span class="form_label_elective">任意</span>
                     <b>来店日&nbsp;:</b>
                 </div>
                 <div>
@@ -78,7 +83,19 @@
 
     </div>
 
+    @include('modal.customer.search')
+    @include('modal.customer.select')
+    @include('modal.customer.edit')
+
+    <!--フラッシュメッセージ-->
+    @if (session('flash'))
+        @foreach (session('flash') as $key => $item)
+            <div class="flash flash-{{ $key }}">{{ session('flash.' . $key) }}</div>
+        @endforeach
+    @endif
+
     <script src="{{ asset('/js/common.js') }}"></script>
+    <script src="{{ asset('/js/customer.js') }}"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 </body>

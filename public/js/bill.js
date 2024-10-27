@@ -145,21 +145,17 @@ $(document).ready(function () {
 });
 
 function pushbutton(id) {
-    //連続押し禁止
-    document.getElementById("add_button").disabled = true;
+    isRight = true;
     //来店日を取得
-    const date = document.getElementsByClassName("date")[0].value;
-    if (!date) {
-        if (!document.getElementById("add_varidate")) {
-            var alart = document.createElement("p");
-            alart.textContent = "※入力必須項目です。";
-            alart.setAttribute("id", "add_varidate");
-            alart.style.color = "red";
-            alart.style.fontSize = "small";
-            document.getElementsByClassName("date_container")[0].appendChild(alart);
-            //ボタン復活
-            document.getElementById("add_button").disabled = false;
-        }
+    if(!$('.date')[0].value){
+        $('.err_date')[0].innerHTML = '来店日を入力してください。';
+        isRight = false;
+    }
+    if(!$('.people_number')[0].value){
+        $('.err_people_number')[0].innerHTML = '来店人数を入力してくだいさい。';
+        isRight = false;
+    }
+    if(!isRight){
         return;
     }
     //idを取得
@@ -172,7 +168,7 @@ function pushbutton(id) {
     $.ajax({
         url: "bill/save_new_bill",
         method: "POST",
-        data: { id: $.trim(customer_id), date: $.trim(date) },
+        data: { id: $.trim(customer_id), date: $.trim($('.date')[0].value), people_number: $.trim($('.people_number')[0].value)},
         dataType: "text",
     })
         .done(function () {

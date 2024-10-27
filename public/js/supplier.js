@@ -13,13 +13,6 @@ function isHalfWidth(str) {
 
 
 window.onload = function () {
-    //tableの幅に合わせてヘッダーの幅も変更
-    let width = document.getElementById('supplier_table').clientWidth;
-    if(width>1200){
-        document.getElementsByClassName('header')[0].style.width = width + 260 + 'px';
-        document.getElementsByClassName('checkbox_alert')[0].style.width = width + 260 + 'px';
-        document.getElementById('supplier_table').style.width = '100%';
-    }
     //セルのフォーカスが外れたら
     for (let i = 0; i < json_days.length; i++) {
         for (let j = 0; j < json_suppliers.length; j++) {
@@ -183,7 +176,7 @@ function ToEdit(supplier){
     if(supplier['delete_flag'] == 1){
         let option = document.createElement("option");
         let option_2 = document.createElement("option");
-        option.value = '';
+        option.value = 0;
         option.innerHTML = '表示';
         option_2.value = 1;
         option_2.innerHTML = '非表示';
@@ -193,7 +186,7 @@ function ToEdit(supplier){
     }else{
         let option = document.createElement("option");
         let option_2 = document.createElement("option");
-        option.value = '';
+        option.value = 0;
         option.innerHTML = '表示';
         option_2.value = 1;
         option_2.innerHTML = '非表示';

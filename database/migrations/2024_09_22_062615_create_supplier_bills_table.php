@@ -20,7 +20,7 @@ return new class extends Migration
             $table->unsignedBigInteger('supplier_id')->comment('提携業社ID');
             $table->unsignedBigInteger('bill')->nullable()->comment('金額');
             $table->date('date')->nullable()->comment('日付');
-            $table->unsignedBigInteger('csha_flag')->nullable()->comment('null:電子、1:現金');
+            $table->unsignedBigInteger('cash_flag')->nullable()->comment('null:電子、1:現金');
             $table->timestamps();
         });
     }

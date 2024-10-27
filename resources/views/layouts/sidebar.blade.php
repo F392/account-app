@@ -7,6 +7,7 @@
         <h4>
             <span>Main Menu</span>
         </h4>
+        @if(count($stores)>0)
         <li>
             <a id="sidebar_store">
                 <img src="{{ asset('/img/home_icon.png') }}" class="sidebar_icon">店舗変更</a>
@@ -16,6 +17,7 @@
                 @endforeach
             </ul>
         </li>
+        @endif
         <li>
             <a class="sidebar_bill" href="{{ route('bill') }}">
                 <img src="{{ asset('/img/bill_icon2.png') }}" class="sidebar_icon">売上集計</a>

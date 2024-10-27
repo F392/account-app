@@ -145,7 +145,6 @@
 
         </div>
     </div>
-    </div>
 
     @include('modal.bill.search')
     @include('modal.bill.add')

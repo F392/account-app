@@ -11,7 +11,8 @@
                 <div class="modal-body">
                     <div class="modal_display">
                         <div>
-                            <span><strong>日付 :</strong></span>
+                            <span class="form_label_requied">必須</span>
+                            <b>日付：</b>
                         </div>
                         <div id="edit_date">
                             <input name="edit_date" type="date">
@@ -21,7 +22,8 @@
 
                     <div class="modal_display">
                         <div>
-                            <span><strong>従業員名 :</strong></span>
+                            <span class="form_label_requied">必須</span>
+                            <b>従業員：</b>
                         </div>
                         <div>
                             <select name="edit_crew_id">
@@ -35,7 +37,8 @@
 
                     <div class="modal_display">
                         <div>
-                            <span><strong>金額 :</strong></span>
+                            <span class="form_label_requied">必須</span>
+                            <b>金額：</b>
                         </div>
                         <div>
                             <input name="edit_bill" type="text" id="bill"> 円
@@ -45,7 +48,8 @@
 
                     <div class="modal_display">
                         <div>
-                            <span><strong>コメント :</strong></span>
+                            <span class="form_label_requied">必須</span>
+                            <b>コメント：</b>
                         </div>
                         <div>
                             <div>
@@ -88,21 +92,6 @@
     .edit_comment_container{
         margin: 10px 0 0 0 !important;
         display: none;
-    }
-
-    .modal_display input[name='edit_bill'] {
-        text-align: right;
-        padding-right: 10px;
-        width: 100px;
-    }
-
-    select {
-        padding: 4px;
-        text-align-last: center;
-    }
-
-    .comment {
-        width: 180px;
     }
 
     .btn_color {

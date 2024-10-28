@@ -15,7 +15,7 @@
                         </div>
                         <div>
                             <p>来店人数</p>
-                            <input class="people_number" type='number'>
+                            <input class="people_number" type='number' min="1">
                             <p class="err_people_number"></p>
                         </div>
                     </div>
@@ -49,6 +49,15 @@
 
     .date_container input{
         text-align: center;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        padding-left: 1em;
+        padding-right: 1em;
+        height: 38px;
+        flex: 1;
+        width: 100%;
+        background: #eaedf2;
+        font-size: 18px;
     }
 
     .date_container div:nth-child(1){

@@ -128,38 +128,36 @@ class BillController extends Controller
 
     public function add(Request $request){
         //条件に合わせてデータ取得
-        $query = Customer::query();
-        //店を選択した時、id=0を再定義しないとバグる(原因不明)
-        if($request['crew'] === '0'){
-            $conditions = [
-                'kana' => $request['kana']?:null,
-                'company' => $request['company']?:null,
-                'crew_id' => 0,
-            ];
-        }else{
-            $conditions = [
-                'kana' => $request['kana']?:null,
-                'company' => $request['company']?:null,
-                'crew_id' => $request['crew']?:null,
-            ];
+        $customers = Customer::join('customer_bills', 'customers.id', '=', 'customer_bills.customer_id');
+        //共通部分
+        $customers = $customers->where('customers.company_id',Auth::user()->company_id)->where('customers.store_id',session('store_id'));
+        //名前
+        if($request['name']){
+            $customers = $customers->where('customers.name',"LIKE", '%'.$request['name'].'%');
         }
-        
-        foreach ($conditions as $key => $value) {
-            if (isset($value)) {
-                if($key == 'crew_id'){
-                    $query->where($key,$value);
-                }else{
-                    $query->where($key, "LIKE", "%$value%");
-                }
-            }
+        //カナ
+        if($request['kana']){
+            $customers = $customers->where('customers.kana',"LIKE", '%'.$request['kana'].'%');
         }
-        
-        $user = $query->get();
+        //会社名
+        if($request['company']){
+            $customers = $customers->where('customers.company',"LIKE", '%'.$request['company'].'%');
+        }
+        //担当
+        if(!is_null($request['crew_id'])){
+            $customers = $customers->where('customers.crew_id',$request['crew_id']);
+        }
+        //来店日
+        if($request['date']){
+            $customers = $customers->where('customer_bills.date',$request['date']);
+        }
+
+        $customers = $customers->get(['customers.id','customers.name','customers.company','customers.crew_id','customers.bottle'])->unique();
 
         //従業員のidを名前に変えるために
         $crew_names = Crew::all();
 
-        return [$user,$crew_names];
+        return [$customers,$crew_names];
     }
 
 

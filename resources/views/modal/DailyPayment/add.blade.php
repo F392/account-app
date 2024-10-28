@@ -10,7 +10,8 @@
                 <div class="modal-body">
                     <div class="modal_display">
                         <div>
-                            <span><strong>日付 :</strong></span>
+                            <span class="form_label_requied">必須</span>
+                            <b>日付：</b>
                         </div>
                         <div>
                             <input name="date" type="date" id="today">
@@ -20,7 +21,8 @@
 
                     <div class="modal_display">
                         <div>
-                            <span><strong>従業員名 :</strong></span>
+                            <span class="form_label_requied">必須</span>
+                            <b>従業員：</b>
                         </div>
                         <div>
                             <select name="crew_id">
@@ -34,7 +36,8 @@
 
                     <div class="modal_display">
                         <div>
-                            <span><strong>金額 :</strong></span>
+                            <span class="form_label_requied">必須</span>
+                            <b>金額：</b>
                         </div>
                         <div>
                             <input name="bill" type="text" id="bill"> 円
@@ -44,13 +47,14 @@
 
                     <div class="modal_display">
                         <div>
-                            <span><strong>コメント :</strong></span>
+                            <span class="form_label_requied">必須</span>
+                            <b>コメント：</b>
                         </div>
                         <div>
                             <div>
                                 <select name="comment_id" onchange="selectChange()">
-                                     <option value="0">日払い</option>
-                                     <option value="1">その他</option>
+                                    <option value="0">日払い</option>
+                                    <option value="1">その他</option>
                                 </select>
                             </div>
                             <div class="comment_container">
@@ -84,29 +88,68 @@
         margin-left: 20px;
     }
 
-    .comment_container{
+    .comment_container {
         margin: 10px 0 0 0 !important;
         display: none;
     }
 
-    .modal_display input[name='bill'] {
-        text-align: right;
-        padding-right: 10px;
-        width: 100px;
-    }
-
-    select {
-        padding: 4px;
-        text-align-last: center;
-    }
-
     .comment {
-        width: 180px;
+        width: 220px!important;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        padding-left: 1em;
+        padding-right: 1em;
+        flex: 1;
+        background: #eaedf2;
+        font-size: 18px;
+    }
+
+    .modal_display div:nth-child(2) input {
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        padding-left: 1em;
+        padding-right: 1em;
+        height: 38px;
+        flex: 1;
+        width: 100%;
+        max-width: 220px;
+        background: #eaedf2;
+        font-size: 18px;
+    }
+
+    .form_label_requied {
+        border-radius: 6px;
+        margin-right: 8px;
+        padding-top: 3px;
+        padding-bottom: 3px;
+        width: 38px;
+        display: inline-block;
+        text-align: center;
+        background: #e15a5a;
+        color: #fff;
+        font-size: 14px;
+    }
+
+    .modal_display div:nth-child(2) select {
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        padding-left: 1em;
+        padding-right: 1em;
+        height: 38px;
+        flex: 1;
+        min-width: 100px;
+        background: #eaedf2;
+        font-size: 18px;
+        text-align: center;
+    }
+
+    .modal_display div:nth-child(1) b {
+        line-height: 38px;
     }
 
     .btn_color {
-        background-color: rgb(180, 60, 60)!important;
-        border-color: rgb(180, 60, 60)!important;
+        background-color: rgb(180, 60, 60) !important;
+        border-color: rgb(180, 60, 60) !important;
     }
 
     .btn_color:hover {

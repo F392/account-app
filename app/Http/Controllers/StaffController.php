@@ -6,6 +6,7 @@ use App\Models\Crew;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 use Log;
 
 class StaffController extends Controller
@@ -69,12 +70,14 @@ class StaffController extends Controller
         endfor;
         //売上データ
         $monthly_bills = DB::select("SELECT LEFT(date, 7) as month,
-        COUNT(id) as count,
-        SUM(intax_bill) as sum
+        COUNT(customer_bills.id) as count,
+        SUM(customer_bills.intax_bill) as sum
         FROM `customer_bills`
-        where crew_id = ? and date LIKE ?
+        JOIN `customers`
+        ON customers.id = customer_bills.customer_id
+        where customer_bills.crew_id = ? and customer_bills.date LIKE ?  and customers.company_id = ? and customers.store_id = ?
         GROUP BY month
-        ORDER BY month ASC", [$inputs['crew_id'], $inputs['year'] . '%']);
+        ORDER BY month ASC", [$inputs['crew_id'], $inputs['year'] . '%',Auth::user()->company_id,session('store_id')]);
         foreach ($monthly_bills as $monthly_bill) {
             //データを入れている初期多次元配列から年月「YYYY-mm」が一致する配列番号を取得
             $key = array_search($monthly_bill->month, array_column($data, 'year_month'));
@@ -88,9 +91,11 @@ class StaffController extends Controller
         FROM `mukei_bills`
         LEFT JOIN `customer_bills`
         ON customer_bills.id = mukei_bills.customer_bill_id
-        where mukei_bills.mukei_crew_id = ? and customer_bills.date LIKE ?
+        JOIN `customers`
+        ON customers.id = customer_bills.customer_id
+        where mukei_bills.mukei_crew_id = ? and customer_bills.date LIKE ? and customers.company_id = ? and customers.store_id = ?
         GROUP BY month
-        ORDER BY month ASC", [$inputs['crew_id'], $inputs['year'] . '%']);
+        ORDER BY month ASC", [$inputs['crew_id'], $inputs['year'] . '%',Auth::user()->company_id,session('store_id')]);
         foreach ($monthly_mukei_bills as $monthly_mukei_bill) {
             //データを入れている初期多次元配列から年月「YYYY-mm」が一致する配列番号を取得
             $key = array_search($monthly_mukei_bill->month, array_column($data, 'year_month'));
@@ -189,12 +194,14 @@ class StaffController extends Controller
         endfor;
         //日毎の売上データ
         $daily_bills = DB::select("SELECT
-        SUM(intax_bill) as sum ,
+        SUM(customer_bills.intax_bill) as sum ,
         date
         FROM `customer_bills`
-        where crew_id = ? and date LIKE ?
+        JOIN `customers`
+        ON customers.id = customer_bills.customer_id
+        where customer_bills.crew_id = ? and customer_bills.date LIKE ? and customers.company_id = ? and customers.store_id = ?
         GROUP BY date
-        ORDER BY date ASC;", [$inputs['selected_crew_id'], $inputs['date'] . '%']);
+        ORDER BY date ASC;", [$inputs['selected_crew_id'], $inputs['date'] . '%',Auth::user()->company_id,session('store_id')]);
         foreach ($daily_bills as $daily_bill) {
             $key = array_search(date('j', strtotime($daily_bill->date)), array_column($daily_data, 'day'));
             $daily_data[$key]['daily_amount'] = $daily_bill->sum ?: 0;
@@ -206,9 +213,11 @@ class StaffController extends Controller
         FROM `mukei_bills`
         LEFT JOIN `customer_bills`
         ON customer_bills.id = mukei_bills.customer_bill_id
-        where mukei_bills.mukei_crew_id = ? and customer_bills.date LIKE ?
+        JOIN `customers`
+        ON customers.id = customer_bills.customer_id
+        where mukei_bills.mukei_crew_id = ? and customer_bills.date LIKE ? and customers.company_id = ? and customers.store_id = ?
         GROUP BY date
-        ORDER BY date ASC", [$inputs['selected_crew_id'], $inputs['date'] . '%']);
+        ORDER BY date ASC", [$inputs['selected_crew_id'], $inputs['date'] . '%',Auth::user()->company_id,session('store_id')]);
         foreach ($daily_mukei_bills as $daily_mukei_bill) {
             $key = array_search(date('j', strtotime($daily_mukei_bill->date)), array_column($daily_data, 'day'));
             $daily_data[$key]['daily_mukei_amount'] = $daily_mukei_bill->sum ?: 0;

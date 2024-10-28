@@ -90,6 +90,8 @@ $(document).ready(function () {
         let input_kana = document.getElementById("add_kana").value;
         let input_company = document.getElementById("add_company").value;
         let input_crew = document.getElementById("add_crew").value;
+        let input_name = document.getElementById("add_name").value;
+        let input_date = document.getElementById("add_date").value;
         let colunms = ["name", "company", "crew_id", "bottle"];
         var URL =
             $(this).data("url") +
@@ -97,8 +99,12 @@ $(document).ready(function () {
             input_kana +
             "&company=" +
             input_company +
-            "&crew=" +
-            input_crew;
+            "&crew_id=" +
+            input_crew +
+            "&name=" +
+            input_name +
+            "&date=" + 
+            input_date;
         $.get(URL, function (data) {
             //crewデータに店を追加
             data[1].push({ id: 0, name: "店" });
@@ -153,6 +159,10 @@ function pushbutton(id) {
     }
     if(!$('.people_number')[0].value){
         $('.err_people_number')[0].innerHTML = '来店人数を入力してくだいさい。';
+        isRight = false;
+    }
+    if(!$('.people_number')[0].value < 1){
+        $('.err_people_number')[0].innerHTML = '入力値が間違っています。';
         isRight = false;
     }
     if(!isRight){

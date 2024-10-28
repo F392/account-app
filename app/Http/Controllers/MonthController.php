@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Carbon\Carbon;
 use App\Models\Crew;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class MonthController extends Controller
 {
@@ -47,7 +48,8 @@ class MonthController extends Controller
 
     public function chart_date($year_month)
     {
-        $crew = Crew::where('store_id',session('store_id'))
+        $crew = Crew::where('company_id',Auth::user()->company_id)
+        ->where('store_id',session('store_id'))
         ->where('delete_flag',0)
         ->where('perfectly_delete_flag','!=',1)
         ->orderBy('id')
@@ -73,12 +75,14 @@ class MonthController extends Controller
         ));
         //売上データ
         $crew_bills = DB::select("SELECT 
-        crew_id,
-        COUNT(id) as count,
-        SUM(intax_bill) as sum
+        customer_bills.crew_id,
+        COUNT(customer_bills.id) as count,
+        SUM(customer_bills.intax_bill) as sum
         FROM `customer_bills`
-        where date LIKE ?
-        GROUP BY crew_id", [$year_month . '%']);
+        JOIN `customers`
+        ON customers.id = customer_bills.customer_id
+        where date LIKE ? and customers.company_id = ? and customers.store_id = ?
+        GROUP BY customer_bills.crew_id", [$year_month . '%',Auth::user()->company_id,session('store_id')]);
         foreach ($crew_bills as $crew_bill) {
             //データを入れている初期多次元配列から年月「YYYY-mm」が一致する配列番号を取得
             $key = array_search($crew_bill->crew_id, array_column($data, 'crew_id'));
@@ -93,8 +97,10 @@ class MonthController extends Controller
         FROM `mukei_bills`
         LEFT JOIN `customer_bills` 
         ON customer_bills.id = mukei_bills.customer_bill_id
-        where customer_bills.date LIKE ?
-        GROUP BY mukei_bills.mukei_crew_id", [$year_month . '%']);
+        JOIN `customers`
+        ON customers.id = customer_bills.customer_id
+        where customer_bills.date LIKE ? and customers.company_id = ? and customers.store_id = ?
+        GROUP BY mukei_bills.mukei_crew_id", [$year_month . '%',Auth::user()->company_id,session('store_id')]);
         foreach ($mukei_crew_bills as $mukei_crew_bill) {
             //データを入れている初期多次元配列から年月「YYYY-mm」が一致する配列番号を取得
             $key = array_search($mukei_crew_bill->mukei_crew_id, array_column($data, 'crew_id'));
